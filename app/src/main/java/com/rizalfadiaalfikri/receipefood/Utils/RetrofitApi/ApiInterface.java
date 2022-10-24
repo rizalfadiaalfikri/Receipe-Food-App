@@ -15,4 +15,11 @@ public interface ApiInterface {
             @Field("user_password") String user_password
     );
 
+    @FormUrlEncoded
+    @POST("users/login.php")
+    Call<Users> login(
+            @Field("user_email") String user_email,
+            @Field("user_password") String user_password
+    );
+
 }
