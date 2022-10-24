@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.rizalfadiaalfikri.receipefood.R;
+import com.rizalfadiaalfikri.receipefood.Screens.Fragment.FavoriteFragment;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.HomeFragment;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.MyReceipeFragment;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.ProfileFragment;
@@ -45,12 +46,16 @@ public class HomeActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.menu_home:
                         replaceFragment(new HomeFragment());
+                        break;
                     case R.id.menu_my_receipe:
                         replaceFragment(new MyReceipeFragment());
+                        break;
                     case R.id.menu_favorite:
-                        replaceFragment(new HomeFragment());
+                        replaceFragment(new FavoriteFragment());
+                        break;
                     case R.id.menu_profile:
                         replaceFragment(new ProfileFragment());
+                        break;
                 }
 
                 return false;
