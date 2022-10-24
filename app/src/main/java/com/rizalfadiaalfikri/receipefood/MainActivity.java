@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.rizalfadiaalfikri.receipefood.Screens.SigninSignup.SignInActivity;
+import com.rizalfadiaalfikri.receipefood.Screens.SigninSignup.SignUpActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });
