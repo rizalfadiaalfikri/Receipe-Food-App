@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Screens.SigninSignup.SignInActivity">
+
+    <TextView
+        android:id="@+id/txt_title_signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textSize="40sp"
+        android:textColor="@color/primaryColor"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:layout_margin="25dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/txt_title_signIn"
+        android:layout_marginTop="50dp">
+
+        <EditText
+            android:id="@+id/ed_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_style_1"
+            android:padding="12dp"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="15dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/primaryColor"
+            android:textColorHint="@color/primaryColor"
+            android:textSize="19sp"/>
+        <EditText
+            android:id="@+id/ed_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/button_style_1"
+            android:padding="12dp"
+            android:drawableLeft="@drawable/ic_baseline_lock_24"
+            android:drawablePadding="15dp"
+            android:hint="Password"
+            android:textColor="@color/primaryColor"
+            android:textColorHint="@color/primaryColor"
+            android:textSize="19sp"/>
+        <Button
+            android:id="@+id/btn_signIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="45dp"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            android:background="@drawable/button_style_2"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:textColor="@color/primaryColor"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="right"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="60dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Don't have an account?"
+                android:fontFamily="monospace"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/txt_signUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Sign Up"
+                android:fontFamily="monospace"
+                android:textColor="@color/primaryColor"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
