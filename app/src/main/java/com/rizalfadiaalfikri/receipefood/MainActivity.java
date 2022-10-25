@@ -10,15 +10,20 @@ import android.widget.Button;
 import com.rizalfadiaalfikri.receipefood.Screens.Home.HomeActivity;
 import com.rizalfadiaalfikri.receipefood.Screens.SigninSignup.SignInActivity;
 import com.rizalfadiaalfikri.receipefood.Screens.SigninSignup.SignUpActivity;
+import com.rizalfadiaalfikri.receipefood.Utils.Session.SessionManager;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button btn_signIn, btn_signUp, btn_skip;
 
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sessionManager= new SessionManager(MainActivity.this);
 
         initializefields();
 
@@ -54,6 +59,20 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (sessionManager.isLogin()) {
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+
+        }
 
     }
 }

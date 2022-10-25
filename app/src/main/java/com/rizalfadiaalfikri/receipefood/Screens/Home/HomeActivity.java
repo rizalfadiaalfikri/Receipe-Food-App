@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,16 +16,20 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.rizalfadiaalfikri.receipefood.MainActivity;
 import com.rizalfadiaalfikri.receipefood.R;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.FavoriteFragment;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.HomeFragment;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.MyReceipeFragment;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.ProfileFragment;
+import com.rizalfadiaalfikri.receipefood.Utils.Session.SessionManager;
 
 public class HomeActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private BottomNavigationView bottomNavigationView;
+
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
+
+        sessionManager = new SessionManager(HomeActivity.this);
 
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -83,9 +90,18 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.menu_signOut) {
-            Toast.makeText(this, "Sign Out", Toast.LENGTH_SHORT).show();
+            logout();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void logout() {
+        sessionManager.editor.clear();
+        sessionManager.editor.commit();
+
+        Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
