@@ -10,6 +10,12 @@ public class Users {
     @SerializedName("user_id")
     private String user_id;
 
+    @SerializedName("user_name")
+    private String user_name;
+
+    @SerializedName("user_email")
+    private String user_email;
+
     public String getResponse() {
         return response;
     }

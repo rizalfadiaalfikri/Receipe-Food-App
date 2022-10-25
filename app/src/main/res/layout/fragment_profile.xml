@@ -3,15 +3,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Screens.Fragment.ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_circleImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/profile_image"
+        app:civ_border_color="@color/primaryColor"
+        app:civ_border_width="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Profile"
-        android:textSize="40sp"
+        android:orientation="vertical"
+        android:layout_below="@id/profile_circleImage"
+        android:layout_marginTop="15dp">
+        <EditText
+            android:id="@+id/profile_ed_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="Full Name"
+            android:textColorHint="@color/primaryColor"
+            android:textColor="@color/primaryColor"
+            android:textSize="18sp"
+            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawablePadding="15dp"
+            android:background="@drawable/button_style_1"
+            android:padding="10dp"/>
+        <EditText
+            android:id="@+id/profile_ed_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="Email"
+            android:textColorHint="@color/primaryColor"
+            android:textColor="@color/primaryColor"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
+            android:drawablePadding="15dp"
+            android:background="@drawable/button_style_1"
+            android:padding="10dp"
+            android:enabled="true"/>
+        <EditText
+            android:id="@+id/profile_ed_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="Phone Number"
+            android:textColorHint="@color/primaryColor"
+            android:textColor="@color/primaryColor"
+            android:textSize="18sp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/ic_baseline_phone_android_24"
+            android:drawablePadding="15dp"
+            android:background="@drawable/button_style_1"
+            android:padding="10dp"
+            android:enabled="true"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_update_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="45dp"
+        android:text="Update"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+        app:backgroundTint="@null"
+        android:background="@drawable/button_style_2"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="55dp"/>
 
 </RelativeLayout>

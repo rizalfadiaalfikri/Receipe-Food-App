@@ -31,7 +31,7 @@
             android:layout_margin="20dp"
             android:background="@drawable/button_style_1"
             android:padding="12dp"
-            android:drawableLeft="@drawable/ic_baseline_person_24"
+            android:drawableLeft="@drawable/ic_baseline_email_24"
             android:drawablePadding="15dp"
             android:hint="Email"
             android:inputType="textEmailAddress"

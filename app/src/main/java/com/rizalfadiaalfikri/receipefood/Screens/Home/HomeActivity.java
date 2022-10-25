@@ -55,15 +55,19 @@ public class HomeActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.menu_home:
+                        mToolbar.setTitle("Home");
                         replaceFragment(new HomeFragment());
                         break;
                     case R.id.menu_my_receipe:
+                        mToolbar.setTitle("My Receipe");
                         replaceFragment(new MyReceipeFragment());
                         break;
                     case R.id.menu_favorite:
+                        mToolbar.setTitle("Favorite");
                         replaceFragment(new FavoriteFragment());
                         break;
                     case R.id.menu_profile:
+                        mToolbar.setTitle("Profile");
                         replaceFragment(new ProfileFragment());
                         break;
                 }
