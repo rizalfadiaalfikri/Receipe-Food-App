@@ -22,4 +22,10 @@ public interface ApiInterface {
             @Field("user_password") String user_password
     );
 
+    @FormUrlEncoded
+    @POST("profil.php")
+    Call<Users> getProfile(
+            @Field("user_id") int user_id
+    );
+
 }

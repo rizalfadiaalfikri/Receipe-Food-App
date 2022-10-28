@@ -3,6 +3,7 @@ package com.rizalfadiaalfikri.receipefood.Utils.Session;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SessionManager {
@@ -36,5 +37,16 @@ public class SessionManager {
         HashMap<String, String> user = new HashMap<>();
         user.put(USER_ID, sharedPreferences.getString(USER_ID, null));
         return user;
+    }
+
+//    public ArrayList<Integer> getUserId() {
+//        ArrayList<Integer> user = new ArrayList<>();
+//        user.add(sharedPreferences.getInt(USER_ID, 0));
+//        return user;
+//    }
+
+    public String getUserId() {
+        String userId = sharedPreferences.getString(USER_ID, null);
+        return userId;
     }
 }
