@@ -3,15 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Screens.Fragment.MyReceipeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_my_receipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Receipe"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
+        android:src="@drawable/ic_baseline_add_24"
+        app:rippleColor="@color/white"
+        android:backgroundTint="@color/primaryColor"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="20dp"/>
+
 
 </RelativeLayout>
