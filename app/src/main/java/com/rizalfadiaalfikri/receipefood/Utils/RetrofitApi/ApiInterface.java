@@ -41,6 +41,7 @@ public interface ApiInterface {
     Call<Receipes> addReceipes(
             @Field("users_id") int user_id,
             @Field("receipe_name") String receipe_name,
+            @Field("receipe_images") String receipe_images,
             @Field("receipe_ingredients") String receipe_ingredients,
             @Field("receipe_steps") String receipe_stpes
     );

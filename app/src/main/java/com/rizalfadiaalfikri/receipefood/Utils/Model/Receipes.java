@@ -14,6 +14,9 @@ public class Receipes {
     private String receipe_id;
 
 
+    @SerializedName("receipe_images")
+    private String receipe_images;
+
     public String getResponse() {
         return response;
     }
@@ -24,5 +27,9 @@ public class Receipes {
 
     public String getReceipe_id() {
         return receipe_id;
+    }
+
+    public String getReceipe_images() {
+        return receipe_images;
     }
 }
