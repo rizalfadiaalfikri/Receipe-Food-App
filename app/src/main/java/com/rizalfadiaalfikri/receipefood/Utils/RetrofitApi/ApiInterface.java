@@ -46,4 +46,7 @@ public interface ApiInterface {
             @Field("receipe_steps") String receipe_stpes
     );
 
+    @POST("fetch_receipes.php")
+    Call<Receipes> fetchReceipes();
+
 }

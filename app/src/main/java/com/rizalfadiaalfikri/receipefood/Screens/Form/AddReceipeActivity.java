@@ -21,6 +21,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.rizalfadiaalfikri.receipefood.R;
+import com.rizalfadiaalfikri.receipefood.Screens.Fragment.MyReceipeFragment;
+import com.rizalfadiaalfikri.receipefood.Screens.Home.HomeActivity;
 import com.rizalfadiaalfikri.receipefood.Utils.Model.Receipes;
 import com.rizalfadiaalfikri.receipefood.Utils.RetrofitApi.ApiClient;
 import com.rizalfadiaalfikri.receipefood.Utils.RetrofitApi.ApiInterface;
@@ -144,6 +146,8 @@ public class AddReceipeActivity extends AppCompatActivity {
                 public void onResponse(Call<Receipes> call, Response<Receipes> response) {
                     if (response.body().getResponse().equals("ok")) {
                         Toast.makeText(AddReceipeActivity.this, "Add new receipe is successfull", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(AddReceipeActivity.this, HomeActivity.class);
+                        startActivity(intent);
                         Log.d("RECEIPE", "SUCCESSFULL");
                         dialog.dismiss();
                     } else if (response.body().getResponse().equals("failed")) {
