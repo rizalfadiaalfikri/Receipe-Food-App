@@ -1,6 +1,7 @@
 package com.rizalfadiaalfikri.receipefood.Utils.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.rizalfadiaalfikri.receipefood.R;
+import com.rizalfadiaalfikri.receipefood.Screens.DetailedReceipeActivity;
 import com.rizalfadiaalfikri.receipefood.Utils.Model.Receipes;
 import com.rizalfadiaalfikri.receipefood.Utils.Model.ReceipesModel;
 
@@ -65,6 +67,20 @@ public class ReceipesAdapter extends RecyclerView.Adapter<ReceipesAdapter.MyView
                     }
                 })
                 .into(holder.receipes_image);
+
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailedReceipeActivity.class);
+
+                intent.putExtra("name", receipesList.get(position).getReceipe_name());
+                intent.putExtra("ingredients", receipesList.get(position).getReceipe_ingredients());
+                intent.putExtra("steps", receipesList.get(position).getReceipe_steps());
+
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

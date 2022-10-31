@@ -15,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReceipeFood">
-        <activity android:name=".Screens.Form.AddReceipeActivity" android:parentActivityName=".Screens.Home.HomeActivity"></activity>
+        <activity android:name=".Screens.DetailedReceipeActivity"></activity>
+        <activity
+            android:name=".Screens.Form.AddReceipeActivity"
+            android:parentActivityName=".Screens.Home.HomeActivity" />
         <activity android:name=".Screens.Home.HomeActivity" />
         <activity android:name=".Screens.SigninSignup.SignUpActivity" />
         <activity android:name=".Screens.SigninSignup.SignInActivity" />
