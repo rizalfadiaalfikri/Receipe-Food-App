@@ -21,8 +21,10 @@ import com.rizalfadiaalfikri.receipefood.Utils.Model.Receipes;
 import com.rizalfadiaalfikri.receipefood.Utils.Model.ReceipesModel;
 import com.rizalfadiaalfikri.receipefood.Utils.RetrofitApi.ApiClient;
 import com.rizalfadiaalfikri.receipefood.Utils.RetrofitApi.ApiInterface;
+import com.rizalfadiaalfikri.receipefood.Utils.Session.SessionManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,11 +34,14 @@ public class MyReceipeFragment extends Fragment {
 
     FloatingActionButton fab_add;
 
+
     RecyclerView recyclerView;
-    ArrayList<ReceipesModel> receipes;
+    List<ReceipesModel> receipes;
     ReceipesAdapter receipesAdapter;
 
     ApiInterface apiInterface;
+
+    SessionManager sessionManager;
 
     public MyReceipeFragment() {
         // Required empty public constructor
@@ -52,6 +57,11 @@ public class MyReceipeFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycler_view_myReceipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        sessionManager = new SessionManager(getContext());
+
+        fetchReceipes();
+
         fab_add = view.findViewById(R.id.fab_add_my_receipe);
 
         fab_add.setOnClickListener(new View.OnClickListener() {
@@ -62,30 +72,27 @@ public class MyReceipeFragment extends Fragment {
             }
         });
 
-        fetchReceipes();
-
         return view;
     }
 
     private void fetchReceipes() {
 
-        Call<Receipes> call = apiInterface.fetchReceipes();
+        String users_id = sessionManager.getUserId();
+
+        Call<Receipes> call = apiInterface.fetchMyReceipes(Integer.parseInt(users_id));
         call.enqueue(new Callback<Receipes>() {
             @Override
             public void onResponse(Call<Receipes> call, Response<Receipes> response) {
-                if (response.body().getResponse().equals("ok")) {
 
-                    String result = response.body().toString();
-                    Log.d("RESULT", result);
-                    Toast.makeText(getContext(), result, Toast.LENGTH_SHORT).show();
+                receipes = response.body().getData();
 
-                    receipes = response.body().getData();
+                Log.d("Data", receipes.toString());
 
-                    receipesAdapter = new ReceipesAdapter(receipes, getContext());
-                    recyclerView.setAdapter(receipesAdapter);
-                    receipesAdapter.notifyDataSetChanged();
+                receipesAdapter = new ReceipesAdapter(receipes, getContext());
+                recyclerView.setAdapter(receipesAdapter);
+                receipesAdapter.notifyDataSetChanged();
 
-                }
+
             }
 
             @Override
@@ -93,6 +100,7 @@ public class MyReceipeFragment extends Fragment {
 
             }
         });
-
     }
+
+
 }

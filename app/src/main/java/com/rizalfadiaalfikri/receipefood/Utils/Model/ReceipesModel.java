@@ -5,20 +5,28 @@ public class ReceipesModel {
     public ReceipesModel() {
     }
 
+    private String receipe_id;
     private String users_id;
-    private String receipes_id;
-    private String receipes_name;
-    private String receipes_images;
-    private String receipes_ingredients;
-    private String receipes_steps;
+    private String receipe_name;
+    private String receipe_images;
+    private String receipe_ingredients;
+    private String receipe_steps;
 
-    public ReceipesModel(String users_id, String receipes_id, String receipes_name, String receipes_images, String receipes_ingredients, String receipes_steps) {
+    public ReceipesModel(String receipe_id, String users_id, String receipe_name, String receipe_images, String receipe_ingredients, String receipe_steps) {
+        this.receipe_id = receipe_id;
         this.users_id = users_id;
-        this.receipes_id = receipes_id;
-        this.receipes_name = receipes_name;
-        this.receipes_images = receipes_images;
-        this.receipes_ingredients = receipes_ingredients;
-        this.receipes_steps = receipes_steps;
+        this.receipe_name = receipe_name;
+        this.receipe_images = receipe_images;
+        this.receipe_ingredients = receipe_ingredients;
+        this.receipe_steps = receipe_steps;
+    }
+
+    public String getReceipe_id() {
+        return receipe_id;
+    }
+
+    public void setReceipe_id(String receipe_id) {
+        this.receipe_id = receipe_id;
     }
 
     public String getUsers_id() {
@@ -29,43 +37,35 @@ public class ReceipesModel {
         this.users_id = users_id;
     }
 
-    public String getReceipes_id() {
-        return receipes_id;
+    public String getReceipe_name() {
+        return receipe_name;
     }
 
-    public void setReceipes_id(String receipes_id) {
-        this.receipes_id = receipes_id;
+    public void setReceipe_name(String receipe_name) {
+        this.receipe_name = receipe_name;
     }
 
-    public String getReceipes_name() {
-        return receipes_name;
+    public String getReceipe_images() {
+        return receipe_images;
     }
 
-    public void setReceipes_name(String receipes_name) {
-        this.receipes_name = receipes_name;
+    public void setReceipe_images(String receipe_images) {
+        this.receipe_images = receipe_images;
     }
 
-    public String getReceipes_images() {
-        return receipes_images;
+    public String getReceipe_ingredients() {
+        return receipe_ingredients;
     }
 
-    public void setReceipes_images(String receipes_images) {
-        this.receipes_images = receipes_images;
+    public void setReceipe_ingredients(String receipe_ingredients) {
+        this.receipe_ingredients = receipe_ingredients;
     }
 
-    public String getReceipes_ingredients() {
-        return receipes_ingredients;
+    public String getReceipe_steps() {
+        return receipe_steps;
     }
 
-    public void setReceipes_ingredients(String receipes_ingredients) {
-        this.receipes_ingredients = receipes_ingredients;
-    }
-
-    public String getReceipes_steps() {
-        return receipes_steps;
-    }
-
-    public void setReceipes_steps(String receipes_steps) {
-        this.receipes_steps = receipes_steps;
+    public void setReceipe_steps(String receipe_steps) {
+        this.receipe_steps = receipe_steps;
     }
 }

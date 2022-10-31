@@ -24,7 +24,7 @@ public class Receipes {
     private String receipe_name;
 
     @SerializedName("data")
-    private ArrayList<ReceipesModel> data;
+    private List<ReceipesModel> data;
 
     public String getResponse() {
         return response;
@@ -46,7 +46,7 @@ public class Receipes {
         return receipe_name;
     }
 
-    public ArrayList<ReceipesModel> getData() {
+    public List<ReceipesModel> getData() {
         return data;
     }
 }

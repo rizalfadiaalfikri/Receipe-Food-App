@@ -1,28 +1,38 @@
 package com.rizalfadiaalfikri.receipefood.Utils.Adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.rizalfadiaalfikri.receipefood.R;
 import com.rizalfadiaalfikri.receipefood.Utils.Model.Receipes;
 import com.rizalfadiaalfikri.receipefood.Utils.Model.ReceipesModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReceipesAdapter extends RecyclerView.Adapter<ReceipesAdapter.MyViewHolder> {
-    private ArrayList<ReceipesModel> receipesList = new ArrayList<>();
+    private List<ReceipesModel> receipesList = new ArrayList<>();
     private Context context;
 
-    public ReceipesAdapter(ArrayList<ReceipesModel> receipesList, Context context) {
+    public ReceipesAdapter(List<ReceipesModel> receipesList, Context context) {
         this.receipesList = receipesList;
         this.context = context;
     }
@@ -36,11 +46,24 @@ public class ReceipesAdapter extends RecyclerView.Adapter<ReceipesAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.txt_receipes_title.setText(receipesList.get(position).getReceipes_name());
+        holder.txt_receipes_title.setText(receipesList.get(position).getReceipe_name());
+        Toast.makeText(context, receipesList.get(position).getReceipe_name(), Toast.LENGTH_SHORT).show();
 
         Glide.with(context.getApplicationContext())
-                .load(receipesList.get(position).getReceipes_images())
+                .load(receipesList.get(position).getReceipe_images())
+                .apply(new RequestOptions().centerInside().centerCrop())
                 .error(R.drawable.model_image)
+                .listener(new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        return false;
+                    }
+                })
                 .into(holder.receipes_image);
     }
 

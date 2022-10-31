@@ -49,4 +49,10 @@ public interface ApiInterface {
     @POST("fetch_receipes.php")
     Call<Receipes> fetchReceipes();
 
+    @FormUrlEncoded
+    @POST("fetch_my_receipes.php")
+    Call<Receipes> fetchMyReceipes(
+            @Field("users_id") int users_id
+    );
+
 }
