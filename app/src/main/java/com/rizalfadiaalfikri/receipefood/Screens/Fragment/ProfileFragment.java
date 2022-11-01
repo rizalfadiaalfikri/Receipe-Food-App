@@ -94,7 +94,6 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onResponse(Call<Users> call, Response<Users> response) {
                 if (response.isSuccessful()) {
-                    Log.d("NAME", response.body().getProfile().get(0).getUser_name());
 
                     String name = response.body().getProfile().get(0).getUser_name();
                     String email = response.body().getProfile().get(0).getUser_email();
@@ -197,10 +196,12 @@ public class ProfileFragment extends Fragment {
             call.enqueue(new Callback<Users>() {
                 @Override
                 public void onResponse(Call<Users> call, Response<Users> response) {
-                    Log.d("BODY", response.body().toString());
-                    Toast.makeText(getContext(), "Update is successfull", Toast.LENGTH_SHORT).show();
+                    if (response.isSuccessful()) {
+                        Log.d("BODY", response.body().toString());
+                        Toast.makeText(getContext(), "Update is successfull", Toast.LENGTH_SHORT).show();
 
-                    dialog.dismiss();
+                        dialog.dismiss();
+                    }
                 }
 
                 @Override

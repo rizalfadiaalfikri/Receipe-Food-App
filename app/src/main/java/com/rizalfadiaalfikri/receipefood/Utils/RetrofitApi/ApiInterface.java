@@ -46,7 +46,8 @@ public interface ApiInterface {
             @Field("receipe_name") String receipe_name,
             @Field("receipe_images") String receipe_images,
             @Field("receipe_ingredients") String receipe_ingredients,
-            @Field("receipe_steps") String receipe_stpes
+            @Field("receipe_steps") String receipe_stpes,
+            @Field("receipe_duration") String receipe_duration
     );
 
     @POST("fetch_receipes.php")

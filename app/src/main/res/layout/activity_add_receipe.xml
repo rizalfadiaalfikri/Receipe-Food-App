@@ -74,6 +74,18 @@
                     android:padding="30dp"
                     android:inputType="textMultiLine"
                     android:textColorHint="@color/primaryColor"/>
+                <EditText
+                    android:id="@+id/ed_receipe_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:hint="Duration in Minutes"
+                    android:background="@drawable/button_style_1"
+                    android:paddingVertical="10dp"
+                    android:paddingLeft="30dp"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@color/primaryColor"/>
                 <Button
                     android:id="@+id/btn_add_receipe"
                     android:layout_width="match_parent"

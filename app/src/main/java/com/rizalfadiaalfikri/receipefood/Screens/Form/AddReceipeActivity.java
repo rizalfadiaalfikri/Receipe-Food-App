@@ -40,7 +40,7 @@ import retrofit2.Response;
 public class AddReceipeActivity extends AppCompatActivity {
     private Toolbar mToolbar;
 
-    EditText ed_receipe_name, ed_receipe_ingredients, ed_receipe_steps;
+    EditText ed_receipe_name, ed_receipe_ingredients, ed_receipe_steps, ed_receipe_duration;
     Button btn_add_receipe;
     ImageView imageView_receipe;
 
@@ -70,6 +70,7 @@ public class AddReceipeActivity extends AppCompatActivity {
         ed_receipe_name = findViewById(R.id.ed_receipe_name);
         ed_receipe_ingredients = findViewById(R.id.ed_receipe_ingredients);
         ed_receipe_steps = findViewById(R.id.ed_receipe_steps);
+        ed_receipe_duration = findViewById(R.id.ed_receipe_duration);
         btn_add_receipe = findViewById(R.id.btn_add_receipe);
         imageView_receipe = findViewById(R.id.image_receipe);
 
@@ -123,6 +124,7 @@ public class AddReceipeActivity extends AppCompatActivity {
         String receipe_images = imageToString();
         String receipe_ingredients = ed_receipe_ingredients.getText().toString();
         String receipe_steps = ed_receipe_steps.getText().toString();
+        String receipe_duration = ed_receipe_duration.getText().toString();
 
         Log.d("USERS", user_id);
 
@@ -133,6 +135,8 @@ public class AddReceipeActivity extends AppCompatActivity {
             ed_receipe_ingredients.setError("Please required ingredients");
         } else if (receipe_steps.isEmpty()) {
             ed_receipe_steps.setError("Please required steps");
+        } else if (receipe_duration.isEmpty()) {
+            ed_receipe_duration.setError("Please required duration");
         } else {
             ProgressDialog dialog = new ProgressDialog(AddReceipeActivity.this);
             dialog.setTitle("Adding new receipes ......");
@@ -140,7 +144,7 @@ public class AddReceipeActivity extends AppCompatActivity {
             dialog.setCanceledOnTouchOutside(false);
             dialog.show();
 
-            Call<Receipes> call = apiInterface.addReceipes(Integer.parseInt(user_id), receipe_name, receipe_images,receipe_ingredients, receipe_steps);
+            Call<Receipes> call = apiInterface.addReceipes(Integer.parseInt(user_id), receipe_name, receipe_images,receipe_ingredients, receipe_steps, receipe_duration);
             call.enqueue(new Callback<Receipes>() {
                 @Override
                 public void onResponse(Call<Receipes> call, Response<Receipes> response) {

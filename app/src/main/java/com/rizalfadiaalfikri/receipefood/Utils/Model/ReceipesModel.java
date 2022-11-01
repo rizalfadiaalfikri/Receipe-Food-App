@@ -11,14 +11,16 @@ public class ReceipesModel {
     private String receipe_images;
     private String receipe_ingredients;
     private String receipe_steps;
+    private String receipe_duration;
 
-    public ReceipesModel(String receipe_id, String users_id, String receipe_name, String receipe_images, String receipe_ingredients, String receipe_steps) {
+    public ReceipesModel(String receipe_id, String users_id, String receipe_name, String receipe_images, String receipe_ingredients, String receipe_steps, String receipe_duration) {
         this.receipe_id = receipe_id;
         this.users_id = users_id;
         this.receipe_name = receipe_name;
         this.receipe_images = receipe_images;
         this.receipe_ingredients = receipe_ingredients;
         this.receipe_steps = receipe_steps;
+        this.receipe_duration = receipe_duration;
     }
 
     public String getReceipe_id() {
@@ -67,5 +69,13 @@ public class ReceipesModel {
 
     public void setReceipe_steps(String receipe_steps) {
         this.receipe_steps = receipe_steps;
+    }
+
+    public String getReceipe_duration() {
+        return receipe_duration;
+    }
+
+    public void setReceipe_duration(String receipe_duration) {
+        this.receipe_duration = receipe_duration;
     }
 }
