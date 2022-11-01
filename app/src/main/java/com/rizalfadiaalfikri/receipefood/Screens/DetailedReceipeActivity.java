@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -49,6 +50,10 @@ public class DetailedReceipeActivity extends AppCompatActivity {
         txt_receipe_name.setText(receipe_name);
 
         Log.d("INGREDIENTS", receipe_ingredeients);
+
+    }
+
+    public void onCustomToogleClick(View view) {
 
     }
 }
