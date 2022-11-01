@@ -48,21 +48,6 @@ public class DetailedReceipeActivity extends AppCompatActivity {
 
         txt_receipe_name.setText(receipe_name);
 
-
-
-        final DetailedIngredientsFragment detailedIngredientsFragment = new DetailedIngredientsFragment();
-        final DetailedStepsFragment detailedStepsFragment = new DetailedStepsFragment();
-
-        Bundle bundle = new Bundle();
-//        Bundle bundle2 = new Bundle();
-        bundle.putString("ingredients", receipe_ingredeients);
-//        bundle2.putString("steps", receipe_stpes);
-        detailedIngredientsFragment.setArguments(bundle);
-//        detailedStepsFragment.setArguments(bundle2);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.frame_layout, detailedIngredientsFragment)
-                .commit();
         Log.d("INGREDIENTS", receipe_ingredeients);
 
     }

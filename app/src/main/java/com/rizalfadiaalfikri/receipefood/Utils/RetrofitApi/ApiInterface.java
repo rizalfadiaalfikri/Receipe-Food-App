@@ -33,7 +33,10 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("update_profile.php")
     Call<Users> updateProfile(
-            @Field("user_name") String user_name
+            @Field("user_id") int user_id,
+            @Field("user_name") String user_name,
+            @Field("user_phone") String user_phone,
+            @Field("user_pofile") String user_profile
     );
 
     @FormUrlEncoded
@@ -54,5 +57,6 @@ public interface ApiInterface {
     Call<Receipes> fetchMyReceipes(
             @Field("users_id") int users_id
     );
+
 
 }
