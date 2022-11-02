@@ -1,8 +1,11 @@
 package com.rizalfadiaalfikri.receipefood.Utils.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,15 +27,21 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.rizalfadiaalfikri.receipefood.R;
 import com.rizalfadiaalfikri.receipefood.Screens.DetailedReceipeActivity;
+import com.rizalfadiaalfikri.receipefood.Screens.Fragment.DetailedIngredientsFragment;
 import com.rizalfadiaalfikri.receipefood.Utils.Model.Receipes;
 import com.rizalfadiaalfikri.receipefood.Utils.Model.ReceipesModel;
+import com.rizalfadiaalfikri.receipefood.Utils.Session.SessionManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class ReceipesAdapter extends RecyclerView.Adapter<ReceipesAdapter.MyViewHolder> {
     private List<ReceipesModel> receipesList = new ArrayList<>();
     private Context context;
+    private Activity activity;
+    SessionManager sessionManager;
 
     public ReceipesAdapter(List<ReceipesModel> receipesList, Context context) {
         this.receipesList = receipesList;
@@ -78,6 +87,16 @@ public class ReceipesAdapter extends RecyclerView.Adapter<ReceipesAdapter.MyView
                 intent.putExtra("name", receipesList.get(position).getReceipe_name());
                 intent.putExtra("ingredients", receipesList.get(position).getReceipe_ingredients());
                 intent.putExtra("steps", receipesList.get(position).getReceipe_steps());
+
+                int PRIVATE_MODE = 0;
+
+                sessionManager = new SessionManager(context);
+                sessionManager.createIngredients(receipesList.get(position).getReceipe_ingredients());
+
+//                SharedPreferences sharedPref = activity.getSharedPreferences("myKey", PRIVATE_MODE);
+//                SharedPreferences.Editor editor = sharedPref.edit();
+//                editor.putString("value", receipesList.get(position).getReceipe_ingredients());
+//                editor.apply();
 
                 context.startActivity(intent);
             }

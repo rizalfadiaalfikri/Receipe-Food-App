@@ -6,7 +6,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,13 +43,31 @@ public class DetailedReceipeActivity extends AppCompatActivity {
         fragmentAdapter.addFragment(new DetailedStepsFragment(), "Steps");
         viewPager.setAdapter(fragmentAdapter);
 
-        txt_receipe_name = findViewById(R.id.txt_receipe_name_details);
+        try {
+            txt_receipe_name = findViewById(R.id.txt_receipe_name_details);
 
-        receipe_name = getIntent().getStringExtra("name").toString();
-        receipe_ingredeients = getIntent().getStringExtra("ingredients").toString();
-        receipe_stpes = getIntent().getStringExtra("steps");
+            receipe_name = getIntent().getStringExtra("name").toString();
+            receipe_ingredeients = getIntent().getStringExtra("ingredients").toString();
+            receipe_stpes = getIntent().getStringExtra("steps");
 
-        txt_receipe_name.setText(receipe_name);
+            txt_receipe_name.setText(receipe_name);
+
+//            Bundle bundle = new Bundle();
+//            bundle.putString(DetailedIngredientsFragment.KEY_INGREDIENTS, getReceipe_ingredeients());
+//            DetailedIngredientsFragment detailedIngredientsFragment = new DetailedIngredientsFragment();
+//            detailedIngredientsFragment.setArguments(bundle);
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.frame_layout, detailedIngredientsFragment)
+//                    .commit();
+
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         Log.d("INGREDIENTS", receipe_ingredeients);
 
@@ -55,5 +75,9 @@ public class DetailedReceipeActivity extends AppCompatActivity {
 
     public void onCustomToogleClick(View view) {
 
+    }
+
+    public String getReceipe_ingredeients() {
+        return receipe_ingredeients;
     }
 }

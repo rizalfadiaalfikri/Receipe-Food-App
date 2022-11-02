@@ -12,13 +12,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.rizalfadiaalfikri.receipefood.MainActivity;
 import com.rizalfadiaalfikri.receipefood.R;
-import com.rizalfadiaalfikri.receipefood.Screens.Fragment.FavoriteFragment;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.HomeFragment;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.MyReceipeFragment;
 import com.rizalfadiaalfikri.receipefood.Screens.Fragment.ProfileFragment;
@@ -61,10 +59,6 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.menu_my_receipe:
                         mToolbar.setTitle("My Receipe");
                         replaceFragment(new MyReceipeFragment());
-                        break;
-                    case R.id.menu_favorite:
-                        mToolbar.setTitle("Favorite");
-                        replaceFragment(new FavoriteFragment());
                         break;
                     case R.id.menu_profile:
                         mToolbar.setTitle("Profile");

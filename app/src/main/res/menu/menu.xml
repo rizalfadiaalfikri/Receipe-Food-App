@@ -9,10 +9,6 @@
         android:icon="@drawable/ic_baseline_storefront_24"
         android:title="My Receipe"/>
     <item
-        android:id="@+id/menu_favorite"
-        android:icon="@drawable/ic_baseline_favorite_24"
-        android:title="Favorite"/>
-    <item
         android:id="@+id/menu_profile"
         android:icon="@drawable/ic_baseline_person_24_2"
         android:title="Profile"/>
