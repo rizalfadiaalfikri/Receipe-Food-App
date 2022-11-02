@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
         btn_signIn = findViewById(R.id.btn_signIn);
         btn_signUp = findViewById(R.id.btn_signUp);
-        btn_skip = findViewById(R.id.btn_skip);
 
         btn_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,15 +47,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        btn_skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
 

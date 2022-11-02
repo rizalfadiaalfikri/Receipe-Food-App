@@ -100,26 +100,31 @@ public class ProfileFragment extends Fragment {
                     String phone = response.body().getProfile().get(0).getUser_phone();
                     String profile_images = response.body().getProfile().get(0).getUser_profile();
 
-                    ed_name.setText(name);
-                    ed_email.setText(email);
-                    ed_phone.setText(phone);
+                    if (sessionManager.isLogin()) {
+                        ed_name.setText(name);
+                        ed_email.setText(email);
+                        ed_phone.setText(phone);
 
-                    Glide.with(getContext().getApplicationContext())
-                            .load(profile_images)
-                            .error(R.drawable.profile_image)
-                            .listener(new RequestListener<Drawable>() {
-                                @Override
-                                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                                    return false;
-                                }
+                        Glide.with(getContext().getApplicationContext())
+                                .load(profile_images)
+                                .error(R.drawable.profile_image)
+                                .listener(new RequestListener<Drawable>() {
+                                    @Override
+                                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                        return false;
+                                    }
 
-                                @Override
-                                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                                    return false;
-                                }
-                            })
-                            .into(circleImageView);
-
+                                    @Override
+                                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                        return false;
+                                    }
+                                })
+                                .into(circleImageView);
+                    } else {
+                        ed_name.setText("");
+                        ed_email.setText("");
+                        ed_phone.setText("");
+                    }
                 }
             }
 

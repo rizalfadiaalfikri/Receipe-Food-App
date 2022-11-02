@@ -59,7 +59,6 @@ public class ReceipesAdapter extends RecyclerView.Adapter<ReceipesAdapter.MyView
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.txt_receipes_title.setText(receipesList.get(position).getReceipe_name());
         holder.txt_receipes_duration.setText(receipesList.get(position).getReceipe_duration() + " Min");
-        Toast.makeText(context, receipesList.get(position).getReceipe_name(), Toast.LENGTH_SHORT).show();
 
         Glide.with(context.getApplicationContext())
                 .load(receipesList.get(position).getReceipe_images())
