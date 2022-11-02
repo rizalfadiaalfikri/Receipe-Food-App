@@ -17,6 +17,7 @@ public class SessionManager {
     private static final String LOGIN = "IS_LOGIN";
     private static final String USER_ID = "USER_ID";
     private static final String INGREDIENTS = "INGREDIENTS";
+    private static final String STEPS = "STEPS";
 
     public SessionManager(Context context) {
         this.context = context;
@@ -59,5 +60,15 @@ public class SessionManager {
     public String getIngredients() {
         String ingredients = sharedPreferences.getString(INGREDIENTS, null);
         return ingredients;
+    }
+
+    public void createSteps(String steps) {
+        editor.putString(STEPS, steps);
+        editor.apply();
+    }
+
+    public String getSteps() {
+        String steps = sharedPreferences.getString(STEPS, null);
+        return steps;
     }
 }

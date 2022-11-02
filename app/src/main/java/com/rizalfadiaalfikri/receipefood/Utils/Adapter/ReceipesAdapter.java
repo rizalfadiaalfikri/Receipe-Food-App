@@ -85,13 +85,13 @@ public class ReceipesAdapter extends RecyclerView.Adapter<ReceipesAdapter.MyView
                 Intent intent = new Intent(context, DetailedReceipeActivity.class);
 
                 intent.putExtra("name", receipesList.get(position).getReceipe_name());
-                intent.putExtra("ingredients", receipesList.get(position).getReceipe_ingredients());
-                intent.putExtra("steps", receipesList.get(position).getReceipe_steps());
+                intent.putExtra("images", receipesList.get(position).getReceipe_images());
 
                 int PRIVATE_MODE = 0;
 
                 sessionManager = new SessionManager(context);
                 sessionManager.createIngredients(receipesList.get(position).getReceipe_ingredients());
+                sessionManager.createSteps(receipesList.get(position).getReceipe_steps());
 
 //                SharedPreferences sharedPref = activity.getSharedPreferences("myKey", PRIVATE_MODE);
 //                SharedPreferences.Editor editor = sharedPref.edit();
